@@ -1,12 +1,31 @@
+
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'net.researchgate:gradle-release:2.6.0'
+    }
+}
+
 plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
 }
 
+apply plugin: 'net.researchgate.release'
+
 repositories{
     mavenCentral()
 }
+
+group = 'de.failender'
+version = '0.0.1'
+archivesBaseName='ezql-core'
 
 dependencies {
     compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
