@@ -33,8 +33,14 @@ public class UUIDFieldMapper<ENTITY> extends FieldMapper<ENTITY, UUID>{
 	}
 
 	@Override
-	protected Function converter() {
-		return value -> escape(String.valueOf(value));
+	protected Function<UUID, String> converter() {
+
+		return value -> {
+			if(value == null) {
+				return null;
+			}
+			return escape(String.valueOf(value));
+		};
 	}
 }
 

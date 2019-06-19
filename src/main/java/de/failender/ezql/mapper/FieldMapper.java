@@ -48,6 +48,9 @@ public abstract class FieldMapper<ENTITY, FIELD> {
 	}
 
 	protected String escape(String string) {
+		if(string == null) {
+			return "null";
+		}
 		return "'" + string + "'";
 	}
 }
